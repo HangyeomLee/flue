@@ -66,18 +66,16 @@ export default function LearnPage() {
 
   const goNextWord = useCallback(() => {
     const { wordIndex: wi } = stateRef.current
-    if (wi >= SCENARIOS.length - 1) return
     setDir({ x: 0, y: 1 })
-    setWordIndex(wi + 1)
+    setWordIndex((wi + 1) % SCENARIOS.length)
     setStepIndex(0)
     setFinished(false)
   }, [])
 
   const goPrevWord = useCallback(() => {
     const { wordIndex: wi } = stateRef.current
-    if (wi <= 0) return
     setDir({ x: 0, y: -1 })
-    setWordIndex(wi - 1)
+    setWordIndex((wi - 1 + SCENARIOS.length) % SCENARIOS.length)
     setStepIndex(0)
     setFinished(false)
   }, [])
@@ -127,8 +125,9 @@ export default function LearnPage() {
 
   const isFirstStep = stepIndex === 0
   const isLastStep  = stepIndex === STEPS.length - 1
-  const isFirstWord = wordIndex === 0
-  const isLastWord  = wordIndex === SCENARIOS.length - 1
+  // words always cycle — never disabled
+  const isFirstWord = false
+  const isLastWord  = false
   const cardKey     = `${wordIndex}-${finished ? 'done' : step}`
 
   // enter from / exit toward based on swipe direction
@@ -188,13 +187,8 @@ export default function LearnPage() {
       {/* ── Swipeable card ───────────────────────────────────────────────── */}
       <motion.div
         className="flex-1 overflow-hidden relative"
-        /* rubber-band drag for visual feedback — draw step excluded */
-        drag={step !== 'draw'}
-        dragConstraints={{ top: 0, bottom: 0, left: 0, right: 0 }}
-        dragElastic={0.12}
-        dragMomentum={false}
         onPanEnd={onPanEnd}
-        style={{ touchAction: step === 'draw' ? 'none' : 'none' }}
+        style={{ touchAction: 'pan-y' }}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -224,12 +218,10 @@ export default function LearnPage() {
                     onClick={() => { setStepIndex(0); setFinished(false) }}
                     className="bg-primary-light text-primary rounded-2xl py-3 px-6 font-bold border-2 border-primary"
                   >🔁 Practice Again</button>
-                  {!isLastWord && (
-                    <button
-                      onClick={goNextWord}
-                      className="bg-primary text-white rounded-2xl py-3 px-6 font-bold"
-                    >Next Word →</button>
-                  )}
+                  <button
+                    onClick={goNextWord}
+                    className="bg-primary text-white rounded-2xl py-3 px-6 font-bold"
+                  >Next Word →</button>
                 </div>
                 <p className="text-xs text-gray-300">or swipe ↑ for next word</p>
               </div>
