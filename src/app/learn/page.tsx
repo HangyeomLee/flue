@@ -16,7 +16,7 @@ import { SCENARIOS } from '@/data/scenarios'
 import { VOCABULARY } from '@/data/vocabulary'
 
 type Step = 'draw' | 'word' | 'phrase' | 'pattern' | 'sentence' | 'situation'
-const STEPS: Step[] = ['draw', 'word', 'phrase', 'pattern', 'sentence', 'situation']
+const STEPS: Step[] = ['word', 'draw', 'phrase', 'pattern', 'sentence', 'situation']
 const STEP_LABELS: Record<Step, string> = {
   draw: 'Draw', word: 'Word', phrase: 'Phrase',
   pattern: 'Pattern', sentence: 'Sentence', situation: 'Practice',
