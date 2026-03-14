@@ -63,7 +63,7 @@ export default function WelcomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9, duration: 0.4, type: 'spring', stiffness: 200 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => router.push('/topics')}
+          onClick={() => router.push('/learn')}
           className="bg-primary text-white rounded-2xl py-5 px-12 text-2xl font-bold shadow-lg w-full max-w-xs"
         >
           Start Learning
