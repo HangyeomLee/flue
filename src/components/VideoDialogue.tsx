@@ -101,12 +101,6 @@ export default function VideoDialogue({ scenario, onComplete }: VideoDialoguePro
             className="absolute inset-0 flex flex-col items-center justify-end pb-10 gap-5 px-6"
             style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 50%, transparent)' }}
           >
-            {/* Target sentence hint */}
-            <div className="w-full bg-white/10 backdrop-blur-sm rounded-2xl px-5 py-3 text-center">
-              <p className="text-white/60 text-xs uppercase tracking-widest mb-1">Say this</p>
-              <p className="text-white text-2xl font-bold">{scenario.dialogueExpected}</p>
-            </div>
-
             {/* Interim transcript */}
             {(interimTranscript || noInput) && (
               <p className="text-white/70 text-sm italic text-center">
