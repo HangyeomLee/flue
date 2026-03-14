@@ -37,5 +37,3 @@ next-env.d.ts
 
 # large media & dictionary files
 *.pdf
-*.mov
-public/videos/
