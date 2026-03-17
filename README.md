@@ -89,6 +89,14 @@ Each vocabulary topic takes the learner through a structured sequence:
 
 ---
 
+## Screenshots
+
+| Word | Draw | Phrase | Pattern | Sentence | Situation |
+|---|---|---|---|---|---|
+| ![Word](public/images/word.png) | ![Draw](public/images/draw.png) | ![Phrase](public/images/phrase.png) | ![Pattern](public/images/sentence_practice.png) | ![Sentence](public/images/sentence.png) | ![Situation](public/images/video.png) |
+
+---
+
 ## Tech Stack
 
 | Layer | Technology |
